@@ -10,11 +10,24 @@ COPY . .
 RUN pip install -r requirements.txt
 
 #Expose the port
-EXPOSE 5000
+EXPOSE 5001
 
 # Run app.py when the container launches
 CMD ["python", "app.py"]
 
+# FROM python:3.11-slim
+
+# WORKDIR /app
+
+# COPY requirements.txt .
+# RUN pip install --no-cache-dir -r requirements.txt
+
+# COPY . .
+
+# EXPOSE 5002
+
+# CMD ["python", "app.py"]
 
 
+ 
 
