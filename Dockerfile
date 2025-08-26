@@ -1,30 +1,30 @@
-FROM python:3.14.0a3-alpine3.21
+# FROM python:3.14.0a3-alpine3.21
 
-# Set the working directory
-WORKDIR /app
-
-# Copy the current directory contents into the container at /app
-COPY . . 
-
-# Install any needed packages specified in requirements.txt
-RUN pip install -r requirements.txt
-
-#Expose the port
-EXPOSE 5001
-
-# Run app.py when the container launches
-CMD ["python", "app.py"]
-
-# FROM python:3.11-slim
-
+# # Set the working directory
 # WORKDIR /app
 
-# COPY requirements.txt .
-# RUN pip install --no-cache-dir -r requirements.txt
+# # Copy the current directory contents into the container at /app
+# COPY . . 
 
-# COPY . .
+# # Install any needed packages specified in requirements.txt
+# RUN pip install -r requirements.txt
 
-# EXPOSE 5002
+# #Expose the port
+# EXPOSE 5001
+
+# # Run app.py when the container launches
+# CMD ["python", "app.py"]
+
+FROM python:3.11-slim
+
+WORKDIR /app
+COPY . .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+EXPOSE 5002
+CMD ["python", "app.py"]
+
 
 # CMD ["python", "app.py"]
 
